@@ -10,17 +10,22 @@ $(document).ready(function(){
     $.ajax({
         url: queryURL,
         method: 'GET'
+
     }).then(function(response){
         console.log(response.data)
         var imag = response.data
 
         for(var i = 0; i<imag.length; i++)
-        var img = imag[i].images.fixed_height.url;
+        var image = imag[i].images.fixed_height.url;
 
 
-        console.log('ok')
+        // console.log('ok')
 
-        $('')
+        var imgdiv = $('<img>')
+        imgdiv.addClass('pico')
+        imgdiv.attr('src', image)
+
+        $('.picholder').append(imgdiv)
 
     })
 })
